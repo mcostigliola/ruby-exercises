@@ -8,9 +8,11 @@ def sub_string(word,dictionary)
 #iterate trough the array and see how many times find the word
 word_times = Hash[dictionary.collect{|w| [w,""]}]
 #associate the times to a words
+counter = 0
 word_times.each_key do |key|
     if word_times.key?(word.to_s)
-        word_times[word.to_s] = 1
+        counter = 1
+        word_times[word.to_s] = counter
     end
 end
 #return an hash with the results
