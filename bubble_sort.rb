@@ -1,30 +1,20 @@
-#Take the array with unordered numbers
+
 numbers = [4,3,78,2,0,2]
-holder = 0
 
-# numbers = [2,3,4,78,1]
+def bubble_sort(array)
+    n = array.length
+    loop do
+        swapped = false
 
-#define a bubble sort function
-def bubble_sort(arr_unorder)
-    arr_order = Array.new
-
-#iterate the array with two variables
-    arr_unorder.each_with_index do |n,idx|
-
-        #take index of iterated array element
-        # idx = arr_unorder.index(n).to_i
-
-        #compare two variables
-        #if the variable[idx] < variable[idx+1] don't change else invert the position
-        if idx < arr_unorder.length - 1   
-            if n > arr_unorder[idx + 1]
-                holder = n
-                arr_unorder[idx] = arr_unorder[idx + 1]
-                arr_unorder[idx + 1] = holder
+        (n-1).times do |i|
+            if array[i] > array[i + 1]
+                array[i], array[i + 1] = array[i + 1], array[i]
+                swapped = true
             end
         end
+        break if not swapped
     end
-    p arr_unorder
-end    
+    p array
+end
 
 bubble_sort(numbers)
