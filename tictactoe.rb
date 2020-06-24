@@ -86,7 +86,6 @@ while !is_win.win?
         else
             board.update_board(choice_x, choice_y, player2)
         end
-        # counter += 1
         board.printb
     end
 end
