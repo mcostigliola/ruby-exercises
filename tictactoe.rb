@@ -1,8 +1,9 @@
 class TicTacToe
-  @winner = false
-  def win?
-   return @winner
-  end
+    attr_accessor :winner
+    @winner = false
+    def win?
+        return @winner
+    end
 end
 
 class Board
@@ -32,6 +33,35 @@ class Board
         else
             puts "Box not available"
         end
+    end
+
+            
+        # WINS = [
+    #     [0, 1, 2], [3, 4, 5], [6, 7, 8],  # <-- Horizontal wins
+    #     [0, 3, 6], [1, 4, 7], [2, 5, 8],  # <-- Vertical wins
+    #     [0, 4, 8], [2, 4, 6],             # <-- Diagonal wins
+    #   ]
+     
+    def check_box
+        if @board[0][0]== @board[0][2] && @board[0][1] == @board[0][2]
+            puts "The winner is: Player #{@board[0][0]}"
+        elsif @board[1][0]== @board[1][2] && @board[0][1] == @board[1][2]
+            puts "The winner is: Player #{@board[1][0]}"
+        elsif @board[2][0]== @board[2][2] && @board[2][1] == @board[2][2]
+            puts "The winner is: Player #{@board[2][0]}"
+        elsif @board[0][0]== @board[1][0] && @board[0][0] == @board[2][0]
+            puts "The winner is: Player #{@board[0][0]}"
+        elsif @board[0][1]== @board[1][1] && @board[0][1] == @board[2][1]
+            puts "The winner is: Player #{@board[0][1]}"
+        elsif @board[0][2]== @board[1][2] && @board[0][2] == @board[2][2]
+            puts "The winner is: Player #{@board[0][2]}"
+        elsif @board[0][0]== @board[1][1] && @board[0][0] == @board[2][2]
+            puts "The winner is: Player #{@board[0][0]}"
+        elsif @board[0][2]== @board[1][1] && @board[0][2] == @board[2][0]
+            puts "The winner is: Player #{@board[1][1]}"
+        end
+
+        return true
     end
 
     def count_match()
@@ -88,4 +118,6 @@ while !is_win.win?
         end
         board.printb
     end
+
+    board.check_box
 end
